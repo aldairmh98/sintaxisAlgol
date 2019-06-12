@@ -27,7 +27,8 @@ def main():
     first = leftPartValidation(cadena) 
     if first:
         rightPart = cadena[3:len(cadena)]
-        print(expression.expressionValidation(rightPart))
+        if expression.expressionValidation(rightPart) :
+            print('Es válida')
         return
     parentessisNumber= commons.hasParetessis(cadena)
     print(parentessisNumber)
