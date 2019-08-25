@@ -1,6 +1,6 @@
 import commons
 from aritmeticExpression import aritmeticValidation
-
+import expression
 #<boolean> -> <aritmetic> < <aritmetic>
 def validateBoolean(cad):
     cadSize = len(cad)
@@ -13,10 +13,10 @@ def validateBoolean(cad):
             return False
     else:
         aritmetics = my_split(cad)
-        print(aritmetics)
         if len(aritmetics) < 2:
             return False
         else:
+            print(aritmetics[0], aritmetics[1])
             return aritmeticValidation(aritmetics[0]) and aritmeticValidation(aritmetics[1])
     return False
 
@@ -30,7 +30,8 @@ def validateBooleanExpression(cad):
         idx_else = commons.searchWord(cad[2:cadSize], 'else')+2
         if idx_else > -1 :
             if validateBoolean(cad[2:idx_then]):
-                return aritmeticValidation(cad[idx_then+4: idx_else]) and aritmeticValidation(cad[idx_else+4])
+                print(cad[idx_then+4: idx_else], )
+                return aritmeticValidation(cad[idx_then+4: idx_else]) and expression.expressionValidation(cad[idx_else+4])
         else:
             print('No cuenta con la expresión else')
             return False
